@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <title>Mökin varaus</title>
+    <meta charset="UTF-8">
+    <link href="public/styles/styles.css" rel="stylesheet">
+  </head>
+ <body>
+
+
+<form action="/" method="POST"> 
+<div class="res-dates">
+<label>Varauksen aloituspäivä <input type="date" id="start" name="start-date"  required/></label>
+<label>Varauksen lopetuspäivä <input type="date" id="end" name="end-date" placeholder="varauksen lopetuspäivä" required/></label> 
+</div>
+
+<div class="res-info">
+<label>Varaajan kokonimi <input type="text"  name="name" placeholder="Syötä etu- ja sukunimesi" required/></label>
+<label>Varaajan puhelinnumero <input type="tel" name="tel" placeholder="Syötä puh.nro" required/></label>
+<label>Varaajan sähköpostiosoite <input type="email" name="email" placeholder="Syötä email" required/></label>
+<input type="submit" value="Suorita varaus"/>
+</div>
+
+</form>
+
+
+
+
+
+
+
+<script>
+var start = document.getElementById('start');
+var end = document.getElementById('end');
+
+// Asetetaan aloituspäivän placeholderiksi tämä päivä ja 
+// kerrotaan ettei varausta voi aloittaa/päättää menneisyyteen
+document.querySelector("#start").valueAsDate = new Date();
+end.min = start.value; start.min = start.value;
+
+// Kuuntelija aloituspäivälle
+start.addEventListener('change', function() {
+    if (start.value)
+        end.min = start.value;
+}, false);
+
+// Kuuntelija lopetuspäivälle
+end.addEventListener('change', function() {
+    if (end.value)
+        start.max = end.value;
+}, false);
+</script>
+
+
+    </body>
+</html>
