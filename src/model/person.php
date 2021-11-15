@@ -11,5 +11,11 @@
     return DB::run('SELECT * FROM person WHERE email = ?;', [$email])->fetchAll();
   }
 
+  function getPerson($email) {
+    return DB::run('SELECT * FROM person WHERE email = ?;', [$email])->fetch();
+  }
+
+
+
 
 ?>

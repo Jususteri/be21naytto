@@ -1,6 +1,21 @@
 <?php
 
+  // Aloitetaan istunnot.
+  session_start();
+
+
 require_once '../src/init.php';
+
+  // Haetaan kirjautuneen käyttäjän tiedot.
+  if (isset($_SESSION['user'])) {
+    require_once MODEL_DIR . 'person.php';
+    $loggeduser = getPerson($_SESSION['user']);
+  } else {
+    $loggeduser = NULL;
+  }
+
+
+
 
   // Siistitään polku urlin alusta ja mahdolliset parametrit urlin lopusta.
   // Siistimisen jälkeen osoite /~koodaaja/lanify/tapahtuma?id=1 on 
@@ -54,6 +69,25 @@ require_once '../src/init.php';
       case '/reservation':
         echo $templates->render('reservation');
         break;
+        case '/login':
+          if (isset($_POST['send'])) {
+            require_once CONTROLLER_DIR . 'login.php';
+            if (checkLogin($_POST['email'],$_POST['password'])) {
+              session_regenerate_id();
+              $_SESSION['user'] = $_POST['email'];
+              header("Location: " . $config['urls']['baseUrl']);
+            } else {
+              echo $templates->render('login', [ 'error' => ['logging-error' => 'Väärä käyttäjätunnus tai salasana!']]);
+            }
+          } else {
+          echo $templates->render('login', [ 'error' => []]);
+          }
+          break;
+          case "/logout":
+            require_once CONTROLLER_DIR . 'login.php';
+            logout();
+            header("Location: " . $config['urls']['baseUrl']);
+            break;
     default:
       echo $templates->render('error');
   }    

@@ -4,3 +4,5 @@
 <div><?=$cottage['address']?></div>
 <div><?=$cottage['summary']?></div>
 <div><?=$cottage['image']?></div>
+
+

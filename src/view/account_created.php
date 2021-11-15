@@ -2,4 +2,4 @@
 
 <h1>Sinulle on luotu uusi tili!</h1>
 
-<p>Kirjaudu sisään tästä! </p>
+<div class="info">Kirjaudu sisään <a href="login">täältä</a>.</div>

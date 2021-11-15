@@ -124,3 +124,24 @@ form {
     color: red;
     font-size: 0.8rem;
   }
+  .info {
+    background-color: #e5e5e5;
+    border: 1px solid #999;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+  }
+  
+  .info a {
+    color: #975579;
+  }
+  header {
+    background-color: #B8BAC8;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+  }
