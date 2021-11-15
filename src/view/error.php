@@ -1,4 +1,5 @@
-<?php $this->layout('template', ['title' => 'Sivua ei löytynyt']) ?>
+<?php $this->layout('template', ['title' => '']) ?>
 
-<h1>Huppista!</h1>
-<p>Valitettavasti pyytämääsi sivua ei ole. Ole hyvä ja tarkista sivun osoite.</p>
+<h1>Hupsis!</h1>
+
+<p>Valitettavasti pyytämääsi tapahtumaa ei löytynyt.

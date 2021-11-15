@@ -17,13 +17,46 @@ require_once '../src/init.php';
 
   // Selvitetään mitä sivua on kutsuttu ja suoritetaan sivua vastaava
   // käsittelijä.
-  if ($request === '/' || $request === '/cottages') {
-    echo $templates->render('cottages');
-  } else if ($request === '/reservation') {
-    echo $templates->render('reservation');
-  } else {
-    echo $templates->render('error');
-  }
+
+
+  switch ($request) {
+    case '/':
+    case '/cottages':
+      require_once MODEL_DIR . 'cottage.php';
+      $cottages = getCottages();
+      echo $templates->render('cottages',['cottages' => $cottages]);
+      break;
+    case '/cottage':
+      require_once MODEL_DIR . 'cottage.php';
+      $cottage = getCottage($_GET['id']);
+      if ($cottage) {
+        echo $templates->render('cottage',['cottage' => $cottage]);
+      } else {
+        echo $templates->render('error');
+      }
+      break;
+    case '/registration':
+      if (isset($_POST['send'])) {
+        $formdata = cleanArrayData($_POST);
+        require_once CONTROLLER_DIR . 'account.php';
+        $result = addAccount($formdata);
+        if ($result['status'] == "200") {
+          echo $templates->render('account_created', ['formdata' => $formdata]);
+          break;
+        }
+        echo $templates->render('registration', ['formdata' => $formdata, 'error' => $result['error']]);
+        break;
+      } else {
+        echo $templates->render('registration', ['formdata' => [], 'error' => []]);
+        break;
+      }   
+      break;
+      case '/reservation':
+        echo $templates->render('reservation');
+        break;
+    default:
+      echo $templates->render('error');
+  }    
 
 
 ?> 
