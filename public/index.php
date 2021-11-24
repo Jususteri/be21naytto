@@ -53,7 +53,7 @@ switch ($request) {
     break;
   case '/reservation':
     require_once CONTROLLER_DIR . 'reservation.php';
-      require_once MODEL_DIR . 'cottage.php';
+    require_once MODEL_DIR . 'cottage.php';
     if (isset($_POST['send'])) {
       $cottage = getCottage($_GET['id']);
       $allDays = days($_GET['id']);
@@ -66,8 +66,8 @@ switch ($request) {
       );
       if ($result['status'] == "200") {
         echo $templates->render('successfulBooking');
-      } elseif($result['status'] == "400") {
-        echo $templates->render('reservation', ['cottage' => $cottage, 'loggeduser' => $loggeduser, 'allDays' => $allDays,'error' => $result['error']]);
+      } elseif ($result['status'] == "400") {
+        echo $templates->render('reservation', ['cottage' => $cottage, 'loggeduser' => $loggeduser, 'allDays' => $allDays, 'error' => $result['error']]);
       } else {
         echo $templates->render('error');
       }

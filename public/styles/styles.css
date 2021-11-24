@@ -1,42 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 html {
-font-family: 'Rubik', sans-serif;
-background-color:  #141414;
+  font-family: 'Rubik', sans-serif;
+  background-color: #fff;
 }
 
 body {
-  background-color: #fff;
+  background-color: #000000;
+  background-image: url("../images/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Rubik', sans-serif;
   min-height: 100vh;
-  max-width: 40rem;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
   margin: 0 auto;
-  box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
-
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  background-color: #B8BAC8;
-  padding: 1rem 1.5rem;
-  
-}
-
-header h1 {
-  font-size: 3rem;
-  font-weight: normal;
-  margin-left: 0.5rem;
- 
-}
-
-header a {
-  color: #000;
-  text-decoration: none;
+h1 {
+  font-family: 'Fredoka One', cursive;
 }
 
 section {
@@ -45,7 +36,6 @@ section {
 
 section h1 {
   margin-bottom: 1rem;
-  
 }
 
 hr {
@@ -59,92 +49,148 @@ footer {
   text-align: center;
   color: #1B1B3A;
 }
-.cottages > div {
+
+.cottages>div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.cottages > div > div:nth-child(3) {
+
+.cottages>div>div:nth-child(3) {
   text-align: right;
 }
-.cottages > div {
+
+.cottages>div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+form {
+  padding: 1em;
+  background: #f9f9f9;
+}
+
+form>input {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+
+label {
+  text-align: center;
+  display: block;
+  padding: 0.5em 1.5em 0.5em 0;
+}
+
+input {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+
+.form-group>input[type=submit] {
+  padding: 0.5rem 3rem;
+  border-radius: 0.3rem;
+  background-color: #089b14;
+  color: #fff;
+  font-weight: bold;
+  min-width: 12rem;
+  margin: 1rem auto;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.info {
+  background-color: #e5e5e5;
+  border: 1px solid #999;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 2rem;
+  text-align: center;
+}
+
+.info a {
+  color: #975579;
+}
+
+.reservationDays {
+  display: flex;
+  flex-direction: row;
+}
+
+.reservation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #f9f9f9;
+}
+
+.reservationRight {
+  border-left: 1px solid #c1c1c1;
+  padding-left: 3em;
+}
+
+.reservationLeft, p {
+  border-bottom: 1px solid #c1c1c1;
+  text-align: center;
+}
+
+.cottages, h1, .booking {
+  text-align: center;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+  text-decoration: none;
+}
+
+#navButton, #navButton>a, #flexarea>a, #cottagesButton>a, header a {
+  color: white;
+  text-decoration: none;
 }
 
 
-.res-dates {
+.cottage, #flexarea {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  }
+  justify-content: space-around;
+  align-items: center;
+  align-self: flex-end;
 
-form {
-    padding: 1em;
-    background: #f9f9f9;
-    border: 1px solid #c1c1c1;
-    margin-top: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  form > input {
-    margin-bottom: 1rem;
-    background: #fff;
-    border: 1px solid #9c9c9c;
-  }
+}
 
-  
-  .res-info > input[type=submit]:hover {
-    background: green;
-  }
-  
-  label {
-    text-align: center;
-    display: block;
-    padding: 0.5em 1.5em 0.5em 0;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.7em;
-    margin-bottom: 0.5rem;
-  }
+input {
+  border: 1px solid #999;
+  border-radius: 0.3rem;
+  padding: 0.45rem;
+  font-size: 1rem;
+}
 
-.res-info > input[type=submit] {
-    padding: 0.5rem 3rem;
-    border-radius: 0.3rem;
-    background-color: #089b14;
-    color: #fff;
-    font-weight: bold;
-    min-width: 12rem;
-    margin: 1rem auto;
-  }
-  .error {
-    color: red;
-    font-size: 0.8rem;
-  }
-  .info {
-    background-color: #e5e5e5;
-    border: 1px solid #999;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
-  }
-  
-  .info a {
-    color: #975579;
-  }
-  header {
-    background-color: #B8BAC8;
-    padding: 1rem 1.5rem;
+input[type=submit], .button {
+  padding: 0.5rem 3rem;
+  border-radius: 0.3rem;
+  background-color: #089b14;
+  color: #fff;
+  font-weight: bold;
+  min-width: 12rem;
+  margin: 1rem auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .cottage, #flexarea {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    font-size: 0.8rem;
   }
 
-
-  
+  .reservation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #f9f9f9;
+  }
+}
