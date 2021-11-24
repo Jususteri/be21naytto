@@ -11,7 +11,7 @@
     <label>Salasana:</label>
     <input type="password" name="password">
   </div>
-  <div class="error"><?= getValue($error,'logging-error'); ?></div>
+  <div class="error"><?= getValue($error, 'logging-error'); ?></div>
   <div>
     <input type="submit" name="send" value="Kirjaudu">
   </div>

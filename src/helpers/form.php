@@ -1,6 +1,7 @@
 <?php
 
-function cleanArrayData($array=[]) {
+function cleanArrayData($array = [])
+{
   $result = array();
   foreach ($array as $key => $value) {
     $cleaned = trim($value);
@@ -10,15 +11,12 @@ function cleanArrayData($array=[]) {
   return $result;
 }
 
-function getValue($values, $key) {
-    if (array_key_exists($key, $values)) {
-      return htmlspecialchars($values[$key]);
-    } else {
-      return null;
-    }
+function getValue($values, $key)
+{
+  if (array_key_exists($key, $values)) {
+    return htmlspecialchars($values[$key]);
+  } else {
+    return null;
   }
-
-
-
-
+}
 ?>

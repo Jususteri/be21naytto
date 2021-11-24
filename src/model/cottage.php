@@ -10,3 +10,4 @@
   function getCottage($id) {
     return DB::run('SELECT * FROM cottage WHERE idcottage = ?;',[$id])->fetch();
   }
+  ?>

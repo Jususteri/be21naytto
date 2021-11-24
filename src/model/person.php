@@ -15,7 +15,4 @@
     return DB::run('SELECT * FROM person WHERE email = ?;', [$email])->fetch();
   }
 
-
-
-
 ?>
