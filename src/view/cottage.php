@@ -5,10 +5,10 @@
     <h1><?= $cottage['name'] ?></h1>
     <?php echo '<img width="400" height="400" src="data:image/jpeg;base64,'
       . base64_encode($cottage['image']) . '"/>'; ?>
-    <div><?= $cottage['address'] ?></div>
+    <div><strong><?= $cottage['address'] ?></strong></div>
   </div>
   <div class="cottageRight">
-    <div><?= $cottage['summary'] ?></div>
+    <div class="summary"><?= $cottage['summary'] ?></div>
   </div>
 
   <?php
