@@ -178,12 +178,14 @@ input[type=submit], .button {
   min-width: 12rem;
   margin: 1rem auto;
 }
+
 .summary {
 
   inline-size: 500px;
   overflow-wrap: break-word;
-  
+
 }
+
 
 @media only screen and (max-width: 800px) {
   .cottage, #flexarea {
@@ -199,11 +201,12 @@ input[type=submit], .button {
     justify-content: space-around;
     background: #f9f9f9;
   }
+
   .summary {
 
     inline-size: 300px;
     overflow-wrap: break-word;
-    
+
   }
 
 }

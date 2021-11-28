@@ -3,6 +3,7 @@
 <h1>Kirjautuminen</h1>
 
 <form action="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" method="POST">
+ <div class="login">
   <div>
     <label>Sähköposti:</label>
     <input type="text" name="email">
@@ -16,5 +17,5 @@
     <input type="submit" name="send" value="Kirjaudu">
   </div>
 </form>
-
+</div>
 <div class="info">Jos sinulla ei ole vielä tunnuksia, niin voit luoda ne <a href="registration">täällä</a>.</div>

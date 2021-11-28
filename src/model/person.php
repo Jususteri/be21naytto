@@ -15,4 +15,8 @@
     return DB::run('SELECT * FROM person WHERE email = ?;', [$email])->fetch();
   }
 
+  function getPersonByIdperson($idperson) {
+    return DB::run('SELECT * FROM person WHERE idperson = ?;', [$idperson])->fetch();
+  }
+
 ?>

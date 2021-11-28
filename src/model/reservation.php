@@ -17,4 +17,8 @@ function getReservationsByIdcottage($idcottage) {
   return DB::run('SELECT * FROM reservation WHERE idcottage = ?;', [$idcottage])->fetchAll();
 }
 
+function getAllByIdreservation($idreservation) {
+  return DB::run('SELECT * FROM reservation WHERE idreservation = ?;', [$idreservation])->fetchAll();
+}
+
 ?>

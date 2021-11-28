@@ -36,6 +36,7 @@ function addBooking($idcottage, $idperson, $start_date, $end_date, $info)
     $idreservation = addReservation($start, $end, $idcottage, $idperson, $info);
 
     if ($idreservation) {
+      sendConfirmationMessage($idreservation, $idcottage, $idperson, $start_date, $end_date);
       return [
         "status" => 200,
         "id"     => $idreservation
@@ -70,5 +71,39 @@ function days($idcottage)
     }
   }
   return $allDays;
+}
+// Varausvahvistus spostiin
+function sendConfirmationMessage($idreservation, $idcottage, $idperson, $start, $end)
+{
+
+  require_once(MODEL_DIR . 'person.php');
+  require_once(MODEL_DIR . 'cottage.php');
+
+  $person = getPersonByIdperson($idperson);
+  $cottage = getCottage($idcottage);
+
+  $message = "Hei!\n\n" .
+    "Kiitos varauksestasi.\n" .
+    "Varausnumero - $idreservation\n\n" .
+    "Tarkista huolellisesti, että varauksen " .
+    "tiedot ovat oikein.\n\n" .
+    "Mökin tiedot\n" .
+    "Nimi: $cottage[name]\n" .
+    "Osoite: $cottage[address]\n\n" .
+    "Asiakkaan tiedot\n" .
+    "Nimi: $person[name]\n" .
+    "Sähköposti: $person[email]\n\n" .
+    "Varauksen tiedot\n" .
+    "Vuokraaja: Mökkivaraamo Oy\n" .
+    "Ajankohta: $start - $end\n\n" .
+    "Tervetuloa majoittumaan kauttamme!\n\n\n" .
+    "_______________________\n" .
+    "Ystävällisin terveisin\n" .
+    "Mökkivaraamo\n" .
+    "Huitsinnevada 312\n" .
+    "32620 HUITTINEN\n" .
+    "+47 333 78 901\n" .
+    "mokkivaraamo@outlook.com";
+  return mail($person['email'], 'Varausvahvistus', $message);
 }
 ?>

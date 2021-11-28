@@ -3,7 +3,7 @@
 <h1>Uuden tilin luonti</h1>
 
 <form action="" method="POST">
-  <div>
+  <div class="registration">
     <label for="name">Nimi:</label>
     <input id="name" type="text" name="name" value="<?= getValue($formdata, 'name') ?>">
     <div class="error"><span><?= getValue($error, 'name'); ?></span></div>
