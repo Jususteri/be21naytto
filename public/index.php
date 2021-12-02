@@ -88,6 +88,20 @@ switch ($request) {
     $reservations = getReservationsByIdperson($loggeduser['idperson']);
     echo $templates->render('ownReservations', ['reservations' => $reservations]);
     break;
+    case '/book':
+      require_once MODEL_DIR . 'book.php';
+      require_once MODEL_DIR . 'cottage.php';
+      if (isset($_POST['send'])) {
+        $result = addMessage(
+          $_GET['id'],
+          $loggeduser['idperson'],
+          strip_tags(stripslashes($_POST['message']))
+        );
+      }
+      $messages = getMessages($_GET['id']);
+      $cottage = getCottage($_GET['id']);
+      echo $templates->render('visitorsBook', ['loggeduser' => $loggeduser, 'messages' => $messages, 'cottage' => $cottage]);
+      break;
   case '/login':
     if (isset($_POST['send'])) {
       require_once CONTROLLER_DIR . 'login.php';

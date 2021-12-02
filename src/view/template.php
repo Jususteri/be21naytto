@@ -24,7 +24,7 @@
       <?php
       if (isset($_SESSION['user'])) {
         echo "<nav class='navbar'>";
-        echo "<a class='navbar-brand' id='navButton' href='cottages'>Mökkivaraamo</a>";
+        echo "<a class='navbar-brand' id='navButton' href='cottages'><img src='images/favicon-32x32.png' class='d-inline-block align-top'> Mökkivaraamo</a>";
         echo "<div><button type='button' id='navButton' class='btn btn-info'><a href='reservations'>Omat varaukset</a></button></div>";
         echo "<div>Kirjauduttu tunnuksella: $_SESSION[user]</div>";
         echo "<div><button type='button' id='navButton' class='btn btn-danger'><a href='logout'>Kirjaudu ulos</a></button></div>";

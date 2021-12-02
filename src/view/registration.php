@@ -4,10 +4,11 @@
 
 <form action="" method="POST">
   <div class="registration">
+    <div>
     <label for="name">Nimi:</label>
     <input id="name" type="text" name="name" value="<?= getValue($formdata, 'name') ?>">
     <div class="error"><span><?= getValue($error, 'name'); ?></span></div>
-  </div>
+</div>
   <div>
     <label for="email">Sähköposti:</label>
     <input id="email" type="email" name="email" value="<?= getValue($formdata, 'email') ?>">
@@ -25,4 +26,5 @@
   <div>
     <input type="submit" name="send" value="Luo tili">
   </div>
+</div>
 </form>
