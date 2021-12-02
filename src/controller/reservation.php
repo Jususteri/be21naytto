@@ -10,7 +10,10 @@ function addBooking($idcottage, $idperson, $start_date, $end_date, $info)
   if ($start_date > $end_date) {
     $error['day'] = "HUOM! Tarkista varauspäivät. Aloitus on oltava ennen lopetusta";
   }
-
+  // Jos aloitusta tai lopetusta ei ole valittu --> error
+  if (!$start_date || !$end_date) {
+    $error['day'] = "HUOM! Tarkista, että varauspäivät on valittu.";
+  }
   // Luodaan lista kaikista varauksen päivistä
   $reservationDays = array();
   $begin = new DateTime($start_date);
