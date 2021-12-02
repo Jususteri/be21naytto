@@ -1,0 +1,91 @@
+DROP TABLE IF EXISTS person;
+
+CREATE TABLE person (
+    idperson INT UNSIGNED AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    admin BOOLEAN NOT NULL DEFAULT (false),
+    logged_in TIMESTAMP,
+    name VARCHAR(50) NOT NULL,
+    CONSTRAINT pk_person PRIMARY KEY (idperson)
+);
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON person TO 'db_jluomanm'@'localhost';
+
+
+DROP TABLE IF EXISTS cottage;
+
+CREATE TABLE cottage (
+  idcottage INT UNSIGNED AUTO_INCREMENT,
+  name VARCHAR(50) NOT  NULL,
+  address VARCHAR(100) NOT NULL,
+  summary VARCHAR(1000),
+  image LONGBLOB,
+  CONSTRAINT pk_cottage PRIMARY KEY (idcottage) 
+);
+
+INSERT INTO cottage (idcottage, name, address, summary) VALUES (4, 'Hiisi', 'Mäkipolku 21', 'Vuokrataan n.70m2 talviasuttava loma-asunto rantasaunalla Lohjan Muijalasta Lehmijärven rannalta. Erittäin rauhallinen sijainti kuitenkin lähellä pääkaupunkiseutua (n. 50km Helsingistä).
+Sähköt, päämökkiin keittiöön käyttövesi vesijohdolla kaivosta. Vessana puucee eli ulkokäymälä. Nukkumapaikkoja olohuoneessa 2 (120cm sänky) ja makuuhuoneessa 2 (80cm sänky ja sohvasänky).
+Mökin varustukseen kuuluu smart-tv, mikro,hella, leivänpaahdin, vedenkeitin ja jääkaappi pienellä pakastinosalla. Mökissä olohuoneessa pönttöuuni, keittiössä puuhella sähköhellan lisäksi.
+Rantasauna ja pukuhuone on remontoitu kesällä 2020! Viikkovuokra 1160, Vuorokausivuokra 160');
+
+INSERT INTO cottage (idcottage, name, address, summary) VALUES (5, 'Pikkuturska', 'Levintie 224', 'Levin ytimessä rinteiden ja latujen vieressä mukava, viehättävä ja hieman "rouhea" loma-asunto hissilipuilla.
+Asunnossa on makuutilat 4+1 eli 5:lle (yksi erillinen makuuhuone sekä makutila) myös vuodesohva.
+Keittiötilasta löytyvät kokkaamiseen tarvittavat välineet ja hiihdon jälkeen voi nauttia saunan löylyistä, pesuhuoneessa kaksi suihkua, asunnossa on erillinen wc. Asunnon varustus seuraavasti astianpesukone, liesi, uuni, jääkaappi, mikro, kahvinkeitin, vedenkeitin, leivänpaahdin, silitysrauta, hiustenkuivaaja, tv.
+Sukset voi jättää lukittavaan suksikaappiin ulko-oven viereen. Illalla talo on valaistu ympäriinsä.
+Asuntoon kuuluu 2*YRITYSHISSILIPPU koko majoituksen ajaksi ja liput toimivat myös skibussissa.
+Asunto sijaitsee rinteen alla olevalla tontilla.
+Majoitushintaan sisältyy alv 10%.
+Loppusiivous ja liinavaatteet ovat lisäpalveluja, siivouksen voi myös suorittaa majoittuja kuten liinavaatteet voi tuoda omat. Viikkovuokra 755, Vuorokausivuokra 70');
+
+INSERT INTO cottage (idcottage, name, address, summary) VALUES (3, 'Savotta', 'Alasinkuja 1', '3+2 hengen rivitalohuoneisto: MH + OH + Baarikeittiö + PH/WC + S + PARVEKE, Koko: 45,5 m2
+Iso-Syötteen huipulla olevassa kaksi/ kolmekerroksisessa rivitalossa sijaitseva hyväkuntoinen ja rauhallinen alakerran päätyhuoneisto. Huoneisto on lähes 400 metrin korkeudessa, hieman Hotelli Iso-Syötteen alapuolella. Pesuhuone- ja saunatilat on remontoitu loppuvuodesta 2012. Pintoja remontoitu ja keittiön kodinkoneet uusittu 2013. Huoneistolla on autokatospaikka lämpöpistokkeella sekä muiden huoneistojen kanssa yhteinen suksienhuoltotila.
+3 vuodepaikkaa makuuhuoneessa (Parisänky ja erillinen kevyempi sänky), 2 lisävuodepaikkaa olohuoneessa (vuodesohva).
+Lemmikkieläimet ei sallittuja. Viikkovuokra 460, Vuorokausivuokra 40');
+
+INSERT INTO cottage (idcottage, name, address, summary) VALUES (2, 'Hiidenkirnu', 'Möttösenraitti 12', 'Maalaismaisemassa, moottoriliikenteeltä rauhoitetun Rehtijärven rantamaisemassa sijaitseva maalaistalo.
+- talon pihapiiri on avara, soveltuen hyvn eri peleihin. 
+- pihalla myös leikkimökki. 
+- järven toisella puolella on kaunis lenkkeilyalue, luonnonsuojelualue Kirmunharju. 
+- vene ja laituri (yhteiskäytössä) ovat myös käytettävissä kesäaikaan. 
+- sauna lämpiää puilla ja on talon alakerrassa. 
+- talo on nyt liitetty kunnan vesijohtoverkkoon.         
+Viikkovuokra 260, Vuorokausivuokra 35');
+
+INSERT INTO cottage (idcottage, name, address, summary) VALUES (1, 'Luonnonhelma', 'Kinniäntie 2', 'Viihtyisä hirsiparitalohuoneisto ihanteellisella sijainnilla. Viiden minuutin kävelymatka keskustaan, Levi-Markettiin 500m. Huoneistoon tehty keittiöremontti 2019, kattoremontti 2020, pesuhuone, sauna ja wc-remontti 2020. Alakerrassa on tilaa 47m2, parvella 25m2. Yksi makuuhuone parisängyllä alhaalla. Parvella erillinen makuusoppi sekä avointa tilaa. Parvella patjat neljälle eli kuusi henkilöä voi majoittua. Parvi osaltaan matala, joten sopii paremmin nuoremmille.
+Sauna:sähkösauna. Varustus: takka/takkapuut, kaapeli-tv, DVD, radio- cd-soitin., astianpesukone, keraaminen liesi+uuni, mikro, kahvinkeitin, vedenkeitin, leivänpaahdin, jääkaappi, koneellinen vaatteidenkuivauskaappi(varastossa), silitysvälineet, autonlämmityspiste. Viikkovuokra 560, Vuorokausivuokra 60');
+
+GRANT SELECT, UPDATE, DELETE, INSERT ON cottage TO 'db_jluomanm'@'localhost'; 
+
+
+DROP TABLE IF EXISTS reservation;
+
+CREATE TABLE reservation (
+  idreservation INT UNSIGNED AUTO_INCREMENT,
+  idcottage INT UNSIGNED NOT NULL,				
+  idperson INT UNSIGNED NOT NULL,					
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL, 
+  info VARCHAR(500),   
+  CONSTRAINT pk_reservation PRIMARY KEY (idreservation),
+  CONSTRAINT fk_res_cottage FOREIGN KEY (idcottage) REFERENCES cottage(idcottage),
+  CONSTRAINT fk_res_person FOREIGN KEY (idperson) REFERENCES person(idperson)  
+);
+
+GRANT SELECT, UPDATE, DELETE, INSERT ON reservation TO 'db_jluomanm'@'localhost'; 
+
+
+DROP TABLE IF EXISTS book;
+
+CREATE TABLE book (
+  idbook INT UNSIGNED AUTO_INCREMENT,
+  idcottage INT UNSIGNED NOT NULL,
+  idperson INT UNSIGNED NOT NULL,
+  time TIMESTAMP, 
+  message VARCHAR(200) NOT NULL,   
+  CONSTRAINT pk_book PRIMARY KEY (idbook),
+  CONSTRAINT fk_book_cottage FOREIGN KEY (idcottage) REFERENCES cottage(idcottage),
+  CONSTRAINT fk_book_person FOREIGN KEY (idperson) REFERENCES person(idperson)  
+);
+
+GRANT SELECT, UPDATE, DELETE, INSERT ON book TO 'db_jluomanm'@'localhost'; 
